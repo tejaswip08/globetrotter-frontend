@@ -1,17 +1,23 @@
-🌍 Globetrotter Quiz Website
+# 🌍 Globetrotter Quiz Website
+
 A fun and interactive quiz website where users answer trivia questions with fun facts and score tracking.
 
-📌 Features
-Welcome Page: Users enter their username to start.
-Quiz Page: Multiple-choice questions with clues.
-Answer Validation: Users receive feedback on correctness.
-Trivia & Fun Facts: Shown only if the answer is correct.
-Automated Progression: The next question appears after 5 seconds.
-Scorecard: Displays final scores after the quiz.
-📂 Folder Structure
-perl
-Copy
-Edit
+---
+
+### 📌 Features
+
+- Welcome Page: Users enter their username to start.
+- Quiz Page: Multiple-choice questions with clues.
+- Answer Validation: Users receive feedback on correctness.
+  Trivia & Fun Facts: Shown only if the answer is correct.
+- Automated Progression: The next question appears after 5 seconds.
+- Scorecard: Displays final scores after the quiz.
+
+---
+
+## 📂 Folder Structure
+
+```
 Globetrotter/
 │── public/ # Static files
 │ ├── favicon.ico
@@ -19,25 +25,25 @@ Globetrotter/
 │
 │── src/ # Source code
 │ ├── assets/ # Images and static assets
-│ ├── components/  
-│ │ ├── Extras/  
+│ ├── components/
+│ │ ├── Extras/
 │ │ │ ├── MySnackbar.vue # Snackbar notifications
 │ │ │ ├── DisplayAnswerResult.vue # Dialog for answer feedback
-│ │  
-│ ├── plugins/  
+│ │
+│ ├── plugins/
 │ │ ├── index.js # Plugin configurations
 │ │
-│ ├── router/  
+│ ├── router/
 │ │ ├── index.js # Vue Router setup
 │ │
-│ ├── store/  
+│ ├── store/
 │ │ ├── index.js # Vuex store (if used)
 │ │
-│ ├── views/  
-│ │ ├── ChildPages/  
+│ ├── views/
+│ │ ├── ChildPages/
 │ │ │ ├── GamePage.vue # Quiz page with questions
 │ │ │ ├── ScoreCard.vue # Final score display
-│ │ ├── MainPages/  
+│ │ ├── MainPages/
 │ │ │ ├── FirstPage.vue # Welcome page
 │ │ │ ├── FirstPage2.vue # Additional page (if any)
 │ │
@@ -48,28 +54,18 @@ Globetrotter/
 │── babel.config.js # Babel configuration
 │── jsconfig.json # JavaScript project config
 │── package.json # Dependencies & scripts
-│── package-lock.json # Lock file
-🚀 Installation & Setup
-Clone the repository:
+│── package-lock.json
+```
 
-sh
-Copy
-Edit
-git clone https://github.com/yourusername/globetrotter.git
-cd globetrotter
-Install dependencies:
+---
 
-sh
-Copy
-Edit
-npm install
-Run the development server:
+## 🚀 Installation & Setup
 
-sh
-Copy
-Edit
-npm run serve
-Open http://localhost:8080 in your browser.
+- npm install
+- npm run serve
 
-📜 License
+---
+
+## 📜 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
