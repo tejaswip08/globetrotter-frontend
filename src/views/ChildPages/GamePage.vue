@@ -1,12 +1,12 @@
 <template>
-  <div class="mainDiv">
+  <div class="mainDiv" style="background-color: blue">
     <DisplayResultDialog
       :DisplayResult="displayResultDialog"
       :StoreObj="storeObj"
       @closed="DisplayResultDialogEmit"
     />
     <MySnackbar :SnackbarObj="snackbarObj" />
-    <div style="width: 80%">
+    <div style="width: 80%" class="subDiv">
       <v-card
         elevation="0"
         class="customCard"
@@ -21,7 +21,7 @@
           ></v-progress-circular>
         </div>
       </v-card>
-      <v-card elevation="0" class="customCard ma-5" v-else>
+      <v-card elevation="0" class="customCard mt-5 mb-5" v-else>
         <div class="mb-15">
           <v-row align="center">
             <v-col
@@ -73,7 +73,7 @@
             </v-col>
           </v-row>
         </div>
-        <div class="mx-auto" style="width: 50%">
+        <div class="mx-auto clueOptionsDiv" style="width: 50%">
           <div class="text-center">
             {{
               `${currentQuestionIndex + 1} / ${storeFetchedQuestions.length}`
@@ -103,12 +103,22 @@
               {{ option }}</v-btn
             >
           </div>
-          <div class="d-flex justify-end pt-5 nextSkipBtn">
+          <div
+            class="d-flex justify-end pt-5 nextSkipBtn"
+            :class="{
+              submitSkipBtnDiv:
+                currentQuestionIndex + 1 === storeFetchedQuestions.length,
+            }"
+          >
             <div class="mr-2 ml-2">
               <v-btn
                 variant="text"
                 density="default"
                 class="text-capitalize nextBtn"
+                :class="{
+                  submitBtn:
+                    currentQuestionIndex + 1 === storeFetchedQuestions.length,
+                }"
                 @click="submitOptionMethod()"
                 >{{
                   currentQuestionIndex + 1 === storeFetchedQuestions.length
@@ -273,8 +283,9 @@ export default {
 
 <style scoped>
 .mainDiv {
-  /* height: 100vh;
-  width: 100vw; */
+  min-height: 100vh;
+  overflow: auto;
+  width: 100vw;
   background: linear-gradient(to bottom, #f5d3c7, white);
   display: flex;
   justify-content: center;
@@ -339,12 +350,44 @@ export default {
     align-items: center !important;
   }
 
-  .nextBtn {
+  /* .nextBtn {
     margin-bottom: 10px !important;
+  } */
+
+  /* .skipBtn {
+    margin: 0 !important;
+  } */
+
+  .subDiv {
+    width: auto !important;
   }
 
-  .skipBtn {
-    margin: 0 !important;
+  .customCard {
+    border: 0;
+    border-color: none;
+  }
+
+  .clueOptionsDiv {
+    width: auto !important;
+  }
+
+  .mainDiv {
+    display: block !important; /* Reset display */
+    justify-content: unset !important;
+    align-items: unset !important;
+    margin-top: 0px !important;
+  }
+}
+
+@media (max-width: 1250px) {
+  .submitSkipBtnDiv {
+    display: grid !important;
+    place-items: center !important;
+    justify-content: center !important;
+  }
+
+  .submitBtn {
+    margin-bottom: 10px !important;
   }
 }
 </style>

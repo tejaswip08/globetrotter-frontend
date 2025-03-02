@@ -3,7 +3,7 @@
     <MySnackbar :SnackbarObj="snackbarObj" />
     <v-img src="@/assets/pic-2.jpg" cover class="centerImgContent">
       <div class="centerImgContent mainDiv">
-        <v-card elevation="0" class="cardProperty pa-10">
+        <v-card elevation="0" class="cardProperty pa-10 mt-5 mb-5">
           <div class="headingFont text-center text-black">
             Welcome to The
             <span
@@ -113,7 +113,8 @@ export default {
 
 <style scoped>
 .mainDiv {
-  height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
   width: 100vw;
 }
 
