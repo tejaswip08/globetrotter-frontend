@@ -62,7 +62,7 @@ export default {
   computed: {
     quizResultMessage() {
       this.resultObj = this.$store.getters.get_score_card;
-      const correctAnswers = this.resultObj.correct_answer;
+      const correctAnswers = this.resultObj.correct_answers;
       if (correctAnswers >= 8) {
         return "Congratulations! 🎉 You nailed it!";
       } else if (correctAnswers >= 5 && correctAnswers <= 7) {
