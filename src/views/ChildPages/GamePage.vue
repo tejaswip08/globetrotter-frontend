@@ -170,7 +170,10 @@ export default {
   },
 
   async mounted() {
-    if (this.$store.getters.get_user_info.user_name) {
+    if (
+      this.$store.getters.get_user_info.user_name &&
+      this.$store.getters.score_card_entry === false
+    ) {
       if (this.$store.getters.get_question_api_count === 1) {
         try {
           const fetchQuestions = await fetch(
@@ -234,6 +237,7 @@ export default {
       this.currentQuestionIndex += 1;
       this.scoreCardObj.skipped_questions = this.skippedQuestions += 1;
       this.$store.commit("SCORE_CARD", this.scoreCardObj);
+      this.$store.commit("CURRENT_QUESTION_INDEX", this.currentQuestionIndex);
       if (this.currentQuestionIndex === this.storeFetchedQuestions.length) {
         this.storeObj.enable_scorecard = true;
         this.$router.push("/score-card");

@@ -8,6 +8,7 @@ export default createStore({
     apiQuestions: [],
     currentQuestionIndex: null,
     scoreCardObj: {},
+    scoreCardEntry: null,
   },
   getters: {
     get_user_info: (state) => {
@@ -29,6 +30,10 @@ export default createStore({
     get_score_card: (state) => {
       return state.scoreCardObj;
     },
+
+    score_card_entry: (state) => {
+      return state.scoreCardEntry;
+    },
   },
   mutations: {
     SET_USER_INFO(state, data) {
@@ -45,6 +50,10 @@ export default createStore({
 
     CURRENT_QUESTION_INDEX(state, data) {
       state.currentQuestionIndex = data;
+    },
+
+    SCORE_CARD_ENTRY(state, data) {
+      state.scoreCardEntry = data;
     },
 
     SCORE_CARD(state, data) {

@@ -82,6 +82,7 @@ export default {
     this.$store.commit("SET_USER_INFO", {});
     this.$store.commit("SCORE_CARD", {});
     this.$store.commit("SET_QUESTION_API_COUNT", 0);
+    this.$store.commit("SCORE_CARD_ENTRY", false);
   },
 
   methods: {

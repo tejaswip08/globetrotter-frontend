@@ -73,11 +73,16 @@ export default {
     },
   },
 
+  mounted() {
+    this.$store.commit("SCORE_CARD_ENTRY", true);
+  },
+
   methods: {
     playAgainMethod() {
       this.$store.commit("SET_QUESTION_API_COUNT", 1);
       this.$store.commit("CURRENT_QUESTION_INDEX", 0);
       this.$store.commit("SCORE_CARD", {});
+      this.$store.commit("SCORE_CARD_ENTRY", false);
       this.$router.push("/play-quiz");
     },
   },

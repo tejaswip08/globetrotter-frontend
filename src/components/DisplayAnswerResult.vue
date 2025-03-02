@@ -100,6 +100,9 @@ export default {
               body: JSON.stringify(this.StoreObj),
             }
           );
+          this.scoreCardObj = this.$store.getters.get_score_card || {};
+          this.correctAnswers = this.scoreCardObj.correct_answers || 0;
+          this.wrongAnswers = this.scoreCardObj.wrong_answers || 0;
           const data = await response.json();
           this.resultStatus = data;
           if (data.correct) {
