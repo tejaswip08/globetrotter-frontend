@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="poppinsFont">
+    <v-app>
+      <router-view />
+    </v-app>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.poppinsFont {
+  font-family: "Poppins", sans-serif;
+}
+
+.headingFont {
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+}
+
+.subHeadingFont {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.textFieldHeading {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.buttonColor {
+  background-color: #dc93b4 !important;
+  color: black !important;
+}
+
+.nextBtn {
+  background-color: #ce7656 !important;
+  color: white !important;
+}
+
+.menuFont {
+  font-size: 15px !important;
+  font-weight: 500 !important;
 }
 </style>
