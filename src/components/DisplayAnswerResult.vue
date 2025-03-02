@@ -42,7 +42,7 @@
             </span>
           </div>
         </div>
-        <div class="d-flex justify-center menuFont mt-5">
+        <div class="d-flex justify-center menuFont mt-5 text-center">
           {{
             StoreObj.enable_scorecard === true
               ? "Please wait while we will load scorecard for you..!"
