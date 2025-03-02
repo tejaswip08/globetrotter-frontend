@@ -7,30 +7,34 @@
         </div>
         <div class="mx-auto">
           <v-row>
-            <v-col cols="12" lg="6" md="6" class="d-flex justify-left">
+            <v-col class="d-flex justify-left">
               <span class="menuFont"> Correct Answers </span>
             </v-col>
-            <v-col cols="12" lg="6" md="6" class="d-flex justify-end">
-              <span class="menuFont"> {{ resultObj.correct_answers }}/10</span>
+            <v-col class="d-flex justify-end">
+              <span class="menuFont">
+                {{ resultObj.correct_answers || 0 }}/10</span
+              >
             </v-col>
             <v-divider />
-            <v-col cols="12" lg="6" md="6" class="d-flex justify-left">
+            <v-col class="d-flex justify-left">
               <span class="menuFont"> Wrong Answers </span>
             </v-col>
-            <v-col cols="12" lg="6" md="6" class="d-flex justify-end">
-              <span class="menuFont"> {{ resultObj.wrong_answers }}/10</span>
+            <v-col class="d-flex justify-end">
+              <span class="menuFont">
+                {{ resultObj.wrong_answers || 0 }}/10</span
+              >
             </v-col>
             <v-divider />
-            <v-col cols="12" lg="6" md="6" class="d-flex justify-left">
+            <v-col class="d-flex justify-left">
               <span class="menuFont"> Skipped Answers </span>
             </v-col>
-            <v-col cols="12" lg="6" md="6" class="d-flex justify-end">
+            <v-col class="d-flex justify-end">
               <span class="menuFont">
-                {{ resultObj.skipped_questions }}/10</span
+                {{ resultObj.skipped_questions || 0 }}/10</span
               >
             </v-col>
           </v-row>
-          <div class="d-flex justify-center">
+          <div class="d-flex justify-center mt-5">
             <v-btn
               density="default"
               class="nextBtn text-capitalize"

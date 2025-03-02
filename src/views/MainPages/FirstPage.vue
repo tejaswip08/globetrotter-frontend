@@ -2,7 +2,7 @@
   <div class="mainDiv">
     <MySnackbar :SnackbarObj="snackbarObj" />
     <v-img src="@/assets/pic-2.jpg" cover class="centerImgContent">
-      <div class="centerImgContent">
+      <div class="centerImgContent mainDiv">
         <v-card elevation="0" class="cardProperty pa-10">
           <div class="headingFont text-center text-black">
             Welcome to The
@@ -126,6 +126,7 @@ export default {
   /* background-color: white;
   border-radius: 20px;
   width: 70%; */
+
   backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

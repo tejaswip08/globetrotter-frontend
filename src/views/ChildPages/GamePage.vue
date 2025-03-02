@@ -21,15 +21,29 @@
           ></v-progress-circular>
         </div>
       </v-card>
-      <v-card elevation="0" class="customCard" v-else>
+      <v-card elevation="0" class="customCard ma-5" v-else>
         <div class="mb-15">
           <v-row align="center">
-            <v-col cols="12" lg="4" md="4" class="pa-0 d-flex justify-left">
+            <v-col
+              cols="12"
+              lg="4"
+              md="4"
+              sm="12"
+              xs="12"
+              class="pa-0 d-flex justify-left toolbarCol"
+            >
               <div class="headingFont">
                 <span style="color: #ce7656">GlobeTrotter</span>
               </div>
             </v-col>
-            <v-col cols="12" lg="4" md="4" class="pa-0 d-flex justify-center">
+            <v-col
+              cols="12"
+              lg="4"
+              md="4"
+              sm="12"
+              xs="12"
+              class="pa-0 d-flex justify-center toolbarCol"
+            >
               <div class="menuFont">
                 <div class="text-center">
                   <v-icon>mdi-account-circle</v-icon>
@@ -37,7 +51,14 @@
                 </div>
               </div>
             </v-col>
-            <v-col cols="12" lg="4" md="4" class="pa-0 d-flex justify-end">
+            <v-col
+              cols="12"
+              lg="4"
+              md="4"
+              sm="12"
+              xs="12"
+              class="pa-0 d-flex justify-end toolbarCol"
+            >
               <v-btn
                 density="default"
                 rounded
@@ -82,7 +103,7 @@
               {{ option }}</v-btn
             >
           </div>
-          <div class="d-flex justify-end pt-5">
+          <div class="d-flex justify-end pt-5 nextSkipBtn">
             <div class="mr-2 ml-2">
               <v-btn
                 variant="text"
@@ -96,16 +117,17 @@
                 }}</v-btn
               >
             </div>
-            <div class="ml-2">
+            <div class="ml-2 skipBtn">
               <v-btn
-                :disabled="
-                  currentQuestionIndex + 1 === storeFetchedQuestions.length
-                "
                 variant="text"
                 density="default"
                 class="text-capitalize"
                 @click="skipQuestionMethod()"
-                >Skip</v-btn
+                >{{
+                  currentQuestionIndex + 1 === storeFetchedQuestions.length
+                    ? "Skip & Check Results"
+                    : "Skip"
+                }}</v-btn
               >
             </div>
           </div>
@@ -121,6 +143,7 @@ import MySnackbar from "@/components/Extras/MySnackbar.vue";
 export default {
   components: { DisplayResultDialog, MySnackbar },
   data: () => ({
+    windowHeight: 0,
     currentQuestionIndex: 0,
     selectedAnswer: "",
     questionKey: "",
@@ -211,6 +234,10 @@ export default {
       this.currentQuestionIndex += 1;
       this.scoreCardObj.skipped_questions = this.skippedQuestions += 1;
       this.$store.commit("SCORE_CARD", this.scoreCardObj);
+      if (this.currentQuestionIndex === this.storeFetchedQuestions.length) {
+        this.storeObj.enable_scorecard = true;
+        this.$router.push("/score-card");
+      }
       console.log("SCOIRE_CARD", this.scoreCardObj);
     },
 
@@ -243,8 +270,8 @@ export default {
 
 <style scoped>
 .mainDiv {
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh;
+  width: 100vw; */
   background: linear-gradient(to bottom, #f5d3c7, white);
   display: flex;
   justify-content: center;
@@ -286,5 +313,35 @@ export default {
 .nextBtn {
   background-color: #ce7656 !important;
   color: white;
+}
+
+@media (max-width: 960px) {
+  .toolbarCol {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 2px !important;
+  }
+
+  .customCloseBtn {
+    margin-top: 3px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .nextSkipBtn {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .nextBtn {
+    margin-bottom: 10px !important;
+  }
+
+  .skipBtn {
+    margin: 0 !important;
+  }
 }
 </style>
