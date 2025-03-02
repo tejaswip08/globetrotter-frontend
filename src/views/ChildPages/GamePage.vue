@@ -238,7 +238,6 @@ export default {
         this.storeObj.enable_scorecard = true;
         this.$router.push("/score-card");
       }
-      console.log("SCOIRE_CARD", this.scoreCardObj);
     },
 
     closeBtnMethod() {
@@ -254,7 +253,7 @@ export default {
         ...score_card,
         skipped_questions: this.skippedQuestions,
       };
-      console.log("SCOIRE_CARD", score_card);
+
       this.$store.commit("SCORE_CARD", this.scoreCardObj);
       if (this.storeObj.enable_scorecard === false) {
         this.currentQuestionIndex += 1;
