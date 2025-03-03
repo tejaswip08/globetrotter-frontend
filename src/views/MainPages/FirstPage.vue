@@ -167,7 +167,7 @@ export default {
         this.snackbarObj = {
           snackbar_action: true,
           snackbar_color: "text-red",
-          snackbar_message: "Kindly enter valid username!",
+          snackbar_message: "Kindly enter valid username & email!",
         };
         //
       }
