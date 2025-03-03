@@ -19,41 +19,60 @@
           <div class="subHeadingFont text-center text-black">
             The Ultimate Travel Guessing Game!
           </div>
-          <div class="d-flex justify-center">
-            <div class="mt-6">
-              <div class="textFieldHeading text-center text-black mb-1">
-                Enter your name
-              </div>
-              <v-form ref="userForm">
+          <v-form ref="userForm">
+            <div class="d-flex justify-center">
+              <div class="mt-6">
+                <div class="textFieldHeading text-center text-black mb-1">
+                  Enter your name
+                </div>
+
                 <v-text-field
                   v-model="userName"
                   size="small"
                   density="compact"
                   variant="outlined"
                   class="subHeadingFont"
+                  :rules="[(v) => !!v || 'Name is required']"
                   rounded
-                  :rules="[(v) => !!v || 'Required']"
                 >
                   <template v-slot:append-inner>
                     <v-icon color="black">mdi-account-circle</v-icon>
                   </template>
                 </v-text-field>
-              </v-form>
-              <div class="d-flex justify-center mt-3">
-                <v-btn
-                  :loading="btnLoader"
-                  density="default"
-                  class="text-capitalize subHeadingFont buttonColor"
+                <div class="textFieldHeading text-center text-black mt-3">
+                  Enter your email
+                </div>
+
+                <v-text-field
+                  v-model="userEmail"
+                  size="small"
+                  density="compact"
+                  variant="outlined"
+                  class="subHeadingFont"
                   rounded
-                  @click="startQuizMethod()"
-                  >Start Quiz
-                  <v-icon color="black" size="19" class="ml-2"
-                    >mdi-seal</v-icon
-                  ></v-btn
+                  :rules="emailRules"
                 >
+                  <template v-slot:append-inner>
+                    <v-icon color="black">mdi-email</v-icon>
+                  </template>
+                </v-text-field>
+
+                <div class="d-flex justify-center mt-3">
+                  <v-btn
+                    :loading="btnLoader"
+                    density="default"
+                    class="text-capitalize subHeadingFont buttonColor"
+                    rounded
+                    @click="startQuizMethod()"
+                    >Start Quiz
+                    <v-icon color="black" size="19" class="ml-2"
+                      >mdi-seal</v-icon
+                    ></v-btn
+                  >
+                </div>
               </div>
             </div>
-          </div>
+          </v-form>
         </v-card>
       </div>
     </v-img>
@@ -67,6 +86,11 @@ export default {
   data: () => ({
     btnLoader: false,
     userName: "",
+    userEmail: "",
+    emailRules: [
+      (v) => !!v || "Email is required",
+      (v) => /.+@.+\..+/.test(v) || "Enter a valid email address",
+    ],
     snackbarObj: {},
   }),
 
@@ -95,6 +119,47 @@ export default {
           this.$store.commit("SET_QUESTION_API_COUNT", 1);
           this.$store.commit("CURRENT_QUESTION_INDEX", 0);
           this.$router.push("/play-quiz");
+          // const userInfoList = localStorage.getItem("user_info");
+          // if (userInfoList) {
+          //   const parsedData = JSON.parse(userInfoList);
+          //   if (parsedData.length > 0) {
+          //     const findArray = parsedData.find(
+          //       (item) =>
+          //         item.user_name === this.userName &&
+          //         item.user_email === this.userEmail
+          //     );
+          //     if (findArray?.user_name) {
+          //       parsedData.push({
+          //         user_name: this.userName,
+          //         usr_email: this.userEmail,
+          //         high_score: 0,
+          //       });
+          //       localStorage.setItem("user_info", JSON.stringify(parsedData));
+          //     } else {
+          //       localStorage.setItem(
+          //         "current_user_info",
+          //         JSON.stringify(findArray)
+          //       );
+          //     }
+          //   }
+          // } else {
+          //   const newUserEntryArray = [
+          //     {
+          //       user_name: this.userName,
+          //       usr_email: this.userEmail,
+          //       high_score: 0,
+          //     },
+          //   ];
+          //   localStorage.setItem(
+          //     "user_info",
+          //     JSON.stringify(newUserEntryArray)
+          //   );
+          //   localStorage.setItem(
+          //     "current_user_info",
+          //     JSON.stringify(newUserEntryArray[0])
+          //   );
+          //   //
+          // }
         }, 2000);
         // const fetchQuestions = fetch("http://localhost:5000/api/questions");
         // console.log("FETCHED_QUESTIONS", fetchQuestions.json);

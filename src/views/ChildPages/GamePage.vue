@@ -131,7 +131,7 @@
               <v-btn
                 variant="text"
                 density="default"
-                class="text-capitalize"
+                class="text-capitalize optionBtn"
                 @click="skipQuestionMethod()"
                 >{{
                   currentQuestionIndex + 1 === storeFetchedQuestions.length

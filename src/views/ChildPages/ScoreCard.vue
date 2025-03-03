@@ -26,7 +26,7 @@
             </v-col>
             <v-divider />
             <v-col class="d-flex justify-left">
-              <span class="menuFont"> Skipped Answers </span>
+              <span class="menuFont"> Skipped Questions </span>
             </v-col>
             <v-col class="d-flex justify-end">
               <span class="menuFont">
@@ -34,18 +34,34 @@
               >
             </v-col>
           </v-row>
-          <div class="d-flex justify-center mt-5">
-            <v-btn
-              density="default"
-              class="nextBtn text-capitalize"
-              flat
-              @click="playAgainMethod()"
-            >
-              Play Again
-              <v-icon color="white" size="17" class="pl-2"
-                >mdi-refresh</v-icon
-              ></v-btn
-            >
+          <div class="flexDiv mt-5 playAgainDiv">
+            <div class="mr-2">
+              <v-btn
+                density="default"
+                class="nextBtn text-capitalize"
+                flat
+                @click="playAgainMethod()"
+              >
+                Play Again
+                <v-icon color="white" size="17" class="pl-2"
+                  >mdi-refresh</v-icon
+                ></v-btn
+              >
+            </div>
+
+            <div class="ml-2 challengeFriendDiv">
+              <v-btn
+                variant="text"
+                density="default"
+                class="text-capitalize optionBtn"
+                @click="challengeFriend()"
+              >
+                Challenge A Friend
+                <v-icon color="black" size="17" class="pl-2"
+                  >mdi-share</v-icon
+                ></v-btn
+              >
+            </div>
           </div>
         </div>
       </v-card>
@@ -57,12 +73,26 @@
 export default {
   data: () => ({
     resultObj: {},
+    hignScore: 0,
   }),
 
   computed: {
     quizResultMessage() {
       this.resultObj = this.$store.getters.get_score_card;
       const correctAnswers = this.resultObj.correct_answers;
+      // const userInfo = localStorage.getItem("user_info");
+      // if (userInfo) {
+      //   const parsedData = JSON.parse(userInfo);
+      //   if (parsedData?.hign_score < correctAnswers) {
+      //     this.hignScore = correctAnswers;
+      //     localStorage.setItem(
+      //       "user_info",
+      //       JSON.stringify({ ...parsedData, hign_score: correctAnswers })
+      //     );
+      //   } else if (parsedData?.hign_score > correctAnswers) {
+      //     this.hignScore = parsedData?.hign_score;
+      //   }
+      // }
       if (correctAnswers >= 8) {
         return "Congratulations! 🎉 You nailed it!";
       } else if (correctAnswers >= 5 && correctAnswers <= 7) {
@@ -85,6 +115,16 @@ export default {
       this.$store.commit("SCORE_CARD_ENTRY", false);
       this.$router.push("/play-quiz");
     },
+
+    challengeFriend() {
+      const gameLink = "https://globetrotter-frontend-pi.vercel.app/";
+      const message = encodeURIComponent(
+        "Check out this amazing quiz game! 🧠🔥 It's super fun and challenging. Play now: " +
+          gameLink
+      );
+      const whatsappUrl = `https://wa.me/?text=${message}`;
+      window.open(whatsappUrl, "_blank");
+    },
   },
 };
 </script>
@@ -99,10 +139,35 @@ export default {
   background: linear-gradient(to bottom, #f5d3c7, white);
 }
 
+.flexDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .customCard {
   background-color: transparent;
   padding: 30px;
   border: 6px solid white;
   border-radius: 20px;
+}
+
+.optionBtn {
+  background-color: transparent !important;
+  border: 1px solid rgb(195, 186, 186);
+}
+
+@media (max-width: 542px) {
+  .flexDiv {
+    padding-top: 20px !important;
+  }
+  .playAgainDiv {
+    margin: 0 0 10px 0 !important;
+  }
+
+  .challengeFriendDiv {
+    margin: 10px 0 0px 0 !important;
+  }
 }
 </style>
