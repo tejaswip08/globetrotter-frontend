@@ -4,14 +4,25 @@ A fun and interactive quiz website where users answer trivia questions with fun 
 
 ---
 
-### 📌 Features
+## 📌 Features
 
 - Welcome Page: Users enter their username to start.
 - Quiz Page: Multiple-choice questions with clues.
 - Answer Validation: Users receive feedback on correctness.
   Trivia & Fun Facts: Shown only if the answer is correct.
 - Automated Progression: The next question appears after 5 seconds.
-- Scorecard: Displays final scores after the quiz.
+- Scorecard: Displays final scores after the quiz, User can play the game again and user can challenge a friend!.
+
+---
+
+## 🛠️ Tech Stack
+
+- Vue.js 3 (Options API) – Frontend framework
+- Vue Router – Client-side navigation
+- Vuex – State management
+- Vuetify – UI components and styling
+- JavaScript – Core programming language
+- CSS – Styling and layout
 
 ---
 
