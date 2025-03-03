@@ -112,6 +112,7 @@
           >
             <div class="mr-2 ml-2">
               <v-btn
+                :disabled="skipBtnLoader"
                 variant="text"
                 density="default"
                 class="text-capitalize nextBtn"
