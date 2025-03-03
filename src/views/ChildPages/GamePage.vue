@@ -129,6 +129,7 @@
             </div>
             <div class="ml-2 skipBtn">
               <v-btn
+                :loading="skipBtnLoader"
                 variant="text"
                 density="default"
                 class="text-capitalize optionBtn"
@@ -160,6 +161,7 @@ export default {
     startLoader: true,
     skippedQuestions: 0,
     displayResultDialog: false,
+    skipBtnLoader: false,
     storeObj: {},
     snackbarObj: {},
     scoreCardObj: {},
@@ -244,14 +246,18 @@ export default {
     },
 
     skipQuestionMethod() {
-      this.currentQuestionIndex += 1;
-      this.scoreCardObj.skipped_questions = this.skippedQuestions += 1;
-      this.$store.commit("SCORE_CARD", this.scoreCardObj);
-      this.$store.commit("CURRENT_QUESTION_INDEX", this.currentQuestionIndex);
-      if (this.currentQuestionIndex === this.storeFetchedQuestions.length) {
-        this.storeObj.enable_scorecard = true;
-        this.$router.push("/score-card");
-      }
+      this.skipBtnLoader = true;
+      setTimeout(() => {
+        this.currentQuestionIndex += 1;
+        this.scoreCardObj.skipped_questions = this.skippedQuestions += 1;
+        this.$store.commit("SCORE_CARD", this.scoreCardObj);
+        this.$store.commit("CURRENT_QUESTION_INDEX", this.currentQuestionIndex);
+        if (this.currentQuestionIndex === this.storeFetchedQuestions.length) {
+          this.storeObj.enable_scorecard = true;
+          this.$router.push("/score-card");
+        }
+        this.skipBtnLoader = false;
+      }, 3000);
     },
 
     closeBtnMethod() {
