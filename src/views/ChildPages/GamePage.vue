@@ -21,7 +21,7 @@
           ></v-progress-circular>
         </div>
       </v-card>
-      <v-card elevation="0" class="customCard mt-5 mb-5" v-else>
+      <v-card elevation="0" class="customCard mt-5 mb-5 ml-0 mr-0" v-else>
         <div class="mb-15">
           <v-row align="center">
             <v-col
@@ -290,14 +290,15 @@ export default {
 
 <style scoped>
 .mainDiv {
-  /* min-height: 100vh; */
-  /* overflow: auto; */
-  width: 100vw;
+  min-height: 100vh;
+  overflow: auto;
+  min-width: 100vw;
+  /* background-color: blue; */
+
   background: linear-gradient(to bottom, #f5d3c7, white);
-  /* display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
-  place-items: center; */
 }
 
 .customCard {
