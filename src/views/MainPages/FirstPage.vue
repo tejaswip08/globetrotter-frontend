@@ -115,7 +115,10 @@ export default {
       if (isValid.valid) {
         this.btnLoader = true;
         setTimeout(() => {
-          this.$store.commit("SET_USER_INFO", { user_name: this.userName });
+          this.$store.commit("SET_USER_INFO", {
+            user_name: this.userName,
+            user_email: this.userEmail,
+          });
           this.$store.commit("SET_QUESTION_API_COUNT", 1);
           this.$store.commit("CURRENT_QUESTION_INDEX", 0);
           this.$router.push("/play-quiz");

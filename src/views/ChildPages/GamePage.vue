@@ -1,12 +1,12 @@
 <template>
-  <div class="mainDiv" style="background-color: blue">
+  <div class="mainDiv">
     <DisplayResultDialog
       :DisplayResult="displayResultDialog"
       :StoreObj="storeObj"
       @closed="DisplayResultDialogEmit"
     />
     <MySnackbar :SnackbarObj="snackbarObj" />
-    <div style="width: 80%" class="subDiv">
+    <div style="width: 80%" class="subDiv mx-auto">
       <v-card
         elevation="0"
         class="customCard"
@@ -46,7 +46,7 @@
             >
               <div class="menuFont">
                 <div class="text-center">
-                  <v-icon>mdi-account-circle</v-icon>
+                  <v-icon class="mr-2">mdi-account-circle</v-icon>
                   {{ $store.getters.get_user_info.user_name }}
                 </div>
               </div>
@@ -290,20 +290,14 @@ export default {
 
 <style scoped>
 .mainDiv {
-  min-height: 100vh;
-  overflow: auto;
+  /* min-height: 100vh; */
+  /* overflow: auto; */
   width: 100vw;
   background: linear-gradient(to bottom, #f5d3c7, white);
-  display: flex;
+  /* display: grid;
   justify-content: center;
   align-items: center;
-}
-
-.centeredDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
+  place-items: center; */
 }
 
 .customCard {
