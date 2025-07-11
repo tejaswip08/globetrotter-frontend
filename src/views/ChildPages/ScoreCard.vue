@@ -80,6 +80,7 @@ export default {
     quizResultMessage() {
       this.resultObj = this.$store.getters.get_score_card;
       const correctAnswers = this.resultObj.correct_answers;
+      //
       // const userInfo = localStorage.getItem("user_info");
       // if (userInfo) {
       //   const parsedData = JSON.parse(userInfo);
