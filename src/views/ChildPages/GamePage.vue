@@ -359,6 +359,7 @@ export default {
   /* .skipBtn {
     margin: 0 !important;
   } */
+  //
 
   .subDiv {
     width: auto !important;
