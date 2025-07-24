@@ -6,77 +6,87 @@ A fun and interactive quiz website where users answer trivia questions with fun 
 
 ## 📌 Features
 
-- Welcome Page: Users enter their username to start.
-- Quiz Page: Multiple-choice questions with clues.
-- Answer Validation: Users receive feedback on correctness.
-  Trivia & Fun Facts: Shown only if the answer is correct.
-- Automated Progression: The next question appears after 5 seconds.
-- Scorecard: Displays final scores after the quiz, User can play the game again and user can challenge a friend!.
+- **Welcome Page:** Users enter their username to start.
+- **Quiz Page:** Multiple-choice questions with helpful clues.
+- **Answer Validation:** Instant feedback on answers.  
+  ✅ Trivia & fun facts are shown when the answer is correct.
+- **Automated Progression:** The next question loads automatically after 5 seconds.
+- **Scorecard:** Displays final scores, with options to play again or challenge a friend.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Vue.js 3 (Options API) – Frontend framework
-- Vue Router – Client-side navigation
-- Vuex – State management
-- Vuetify – UI components and styling
-- JavaScript – Core programming language
-- CSS – Styling and layout
+- **Vue.js 3** (Options API) – Frontend framework
+- **Vue Router** – Client-side routing
+- **Vuex** – Centralized state management
+- **Vuetify** – UI components & styling
+- **JavaScript** – Programming logic
+- **CSS** – Styling and layout
 
 ---
 
-## 📂 Folder Structure
+## 📂 Project Folder Structure
 
 ```
 Globetrotter/
-│── public/ # Static files
-│ ├── favicon.ico
-│ ├── index.html
-│
-│── src/ # Source code
-│ ├── assets/ # Images and static assets
-│ ├── components/
-│ │ ├── Extras/
-│ │ │ ├── MySnackbar.vue # Snackbar notifications
-│ │ │ ├── DisplayAnswerResult.vue # Dialog for answer feedback
-│ │
-│ ├── plugins/
-│ │ ├── index.js # Plugin configurations
-│ │
-│ ├── router/
-│ │ ├── index.js # Vue Router setup
-│ │
-│ ├── store/
-│ │ ├── index.js # Vuex store (if used)
-│ │
-│ ├── views/
-│ │ ├── ChildPages/
-│ │ │ ├── GamePage.vue # Quiz page with questions
-│ │ │ ├── ScoreCard.vue # Final score display
-│ │ ├── MainPages/
-│ │ │ ├── FirstPage.vue # Welcome page
-│ │ │ ├── FirstPage2.vue # Additional page (if any)
-│ │
-│ ├── App.vue # Root component
-│ ├── main.js # Vue.js entry file
-│
-│── .gitignore # Git ignore file
-│── babel.config.js # Babel configuration
-│── jsconfig.json # JavaScript project config
-│── package.json # Dependencies & scripts
-│── package-lock.json
+├── public/
+│   ├── favicon.ico
+│   └── index.html
+├── src/
+│   ├── assets/                     # Images and static assets
+│   ├── components/
+│   │   └── Extras/
+│   │       ├── MySnackbar.vue      # Snackbar notifications
+│   │       └── DisplayAnswerResult.vue # Feedback dialog
+│   ├── plugins/
+│   │   └── index.js               # Plugin configurations
+│   ├── router/
+│   │   └── index.js               # Vue Router setup
+│   ├── store/
+│   │   └── index.js               # Vuex store
+│   ├── views/
+│   │   ├── ChildPages/
+│   │   │   ├── GamePage.vue       # Quiz interface
+│   │   │   └── ScoreCard.vue      # Final score display
+│   │   └── MainPages/
+│   │       ├── FirstPage.vue      # Welcome screen
+│   │       └── FirstPage2.vue     # Optional additional page
+│   ├── App.vue                    # Root component
+│   └── main.js                    # Entry point
+├── .gitignore
+├── babel.config.js
+├── jsconfig.json
+├── package.json
+└── package-lock.json
 ```
 
 ---
 
 ## 🚀 Installation & Setup
 
-- npm install
-- npm run serve
+To run the project locally:
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start the development server
+npm run serve
+```
+
+The app will be served at `http://localhost:8080/` by default.
+
+---
+
+## ❌ Demo Link (Currently Inactive)
+
+[https://globetrotter-frontend-pi.vercel.app/](https://globetrotter-frontend-pi.vercel.app/)  
+⚠️ This demo is no longer available because the subscription for fetching quiz questions has ended.  
+However, the codebase remains available and can be reused or extended if you're interested.
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the **MIT License** – see the `LICENSE` file for details.
